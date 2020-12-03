@@ -1,4 +1,3 @@
-const menuList = document.querySelector('.js-menu');
-console.log(menuList);
+const menuListRef = document.querySelector('.js-menu');
 
-export { menuList };
+export { menuListRef };
