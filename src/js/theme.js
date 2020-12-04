@@ -15,22 +15,20 @@ applyTheme();
 // Функции
 // Функция для проверки, есть ли сохранённые темы в localStorage
 function applyTheme() {
-  if (localStorage.theme) {
-    bodyRef.classList.add(localStorage.theme);
-    if (localStorage.theme === 'dark-theme') {
-      checkBoxRef.checked = true;
-    }
+  if (localStorage.theme === 'dark-theme') {
+    bodyRef.classList.add(Theme.DARK);
+    checkBoxRef.checked = true;
   } else {
     bodyRef.classList.add(Theme.LIGHT);
   }
 }
 
 // Функция для переключения темы по чекбоксу
-function toggleTheme() {
-  bodyRef.classList.toggle('light-theme');
-  bodyRef.classList.toggle('dark-theme');
+function toggleTheme(event) {
+  bodyRef.classList.toggle(Theme.LIGHT);
+  bodyRef.classList.toggle(Theme.DARK);
 
-  if (bodyRef.classList.contains('dark-theme')) {
+  if (event.target.checked) {
     localStorage.setItem('theme', Theme.DARK);
   } else {
     localStorage.setItem('theme', Theme.LIGHT);
